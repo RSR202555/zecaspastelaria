@@ -703,15 +703,6 @@ h1, h2, h3 {
     --header-height: 132px;
   }
 
-  body {
-    background: var(--cinza-claro);
-  }
-
-  .header-fixed,
-  .categorias-nav {
-    background: linear-gradient(180deg, #6B3A12 0%, var(--marrom-madeira) 60%, #5B2E0C 100%);
-  }
-
   .header-inner {
     height: auto;
     padding: 10px 12px;
