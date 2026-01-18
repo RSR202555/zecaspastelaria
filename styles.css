@@ -703,6 +703,15 @@ h1, h2, h3 {
     --header-height: 132px;
   }
 
+  body {
+    background: var(--cinza-claro);
+  }
+
+  .header-fixed,
+  .categorias-nav {
+    background: linear-gradient(180deg, #6B3A12 0%, var(--marrom-madeira) 60%, #5B2E0C 100%);
+  }
+
   .header-inner {
     height: auto;
     padding: 10px 12px;
@@ -756,6 +765,7 @@ h1, h2, h3 {
     height: 54px;
     bottom: 16px;
     right: 16px;
+    animation: none;
   }
 
   .toast {
@@ -767,6 +777,37 @@ h1, h2, h3 {
   .cart-modal__panel {
     width: min(94vw, 520px);
     max-height: 88vh;
+  }
+
+  .produto-card {
+    transition: none;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .produto-card:hover {
+    transform: none;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .btn-whatsapp-header:hover,
+  .cart-button:hover,
+  .btn-pedir:hover,
+  .btn-adicionar:hover {
+    transform: none;
+  }
+
+  .btn-pedir {
+    box-shadow: 0 3px 10px rgba(249, 115, 22, 0.35);
+  }
+
+  .btn-whatsapp-header,
+  .cart-button {
+    box-shadow: 0 3px 10px rgba(249, 115, 22, 0.28);
+  }
+
+  .categoria {
+    content-visibility: auto;
+    contain-intrinsic-size: 600px;
   }
 }
 
@@ -783,5 +824,16 @@ h1, h2, h3 {
 
   .hero h1 {
     font-size: 26px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
