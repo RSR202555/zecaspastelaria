@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cardápio Digital - Zecas Pastelaria">
+  <meta name="theme-color" content="#FF8C42">
+  <title>Cardápio - Zecas Pastelaria</title>
+
+  <link rel="icon" href="assets/logo-zecas.jpg">
+  <link rel="apple-touch-icon" href="assets/logo-zecas.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header-fixed" role="banner">
+    <div class="header-inner">
+      <div class="brand">
+        <img src="assets/logo-zecas.jpg" alt="Zecas Pastelaria" class="logo-img" width="140" height="56" loading="eager" decoding="async">
+        <div class="brand-text">
+          <div class="brand-name">Zecas Pastelaria</div>
+          <div class="brand-subtitle">Cardápio Digital</div>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <button class="btn-whatsapp-header" id="btn-whatsapp-header" type="button">
+          Pedir pelo WhatsApp
+        </button>
+
+        <button class="cart-button" id="cart-button" type="button" aria-label="Carrinho">
+          Carrinho
+          <span class="cart-count" id="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="categorias-nav categorias-nav--header" aria-label="Categorias">
+      <div class="categorias-track" role="tablist" aria-label="Atalhos de categorias">
+        <button class="categoria-tab active" type="button" data-categoria="pasteis" role="tab" aria-selected="true">🥟 Pastéis</button>
+        <button class="categoria-tab" type="button" data-categoria="salgados" role="tab" aria-selected="false">🥐 Salgados</button>
+        <button class="categoria-tab" type="button" data-categoria="bebidas" role="tab" aria-selected="false">🥤 Bebidas</button>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" aria-label="Apresentação">
+    <div class="hero-inner">
+      <div class="hero-card">
+        <div class="hero-top">
+          <div>
+            <h1>Cardápio Digital</h1>
+            <p>Escaneou, escolheu, pediu.</p>
+          </div>
+          <div class="mesa-badge" id="mesa-badge" hidden></div>
+        </div>
+
+        <div class="hero-badges" aria-label="Destaques">
+          <div class="badge">Rápido</div>
+          <div class="badge">Fácil</div>
+          <div class="badge">Via WhatsApp</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <main class="cardapio" id="cardapio" role="main">
+    <section id="pasteis" class="categoria" data-categoria="pasteis" aria-label="Pastéis">
+      <div class="categoria-header">
+        <h2>🥟 Pastéis</h2>
+        <p class="categoria-desc">Tradicionais</p>
+      </div>
+
+      <div class="produtos-grid" id="grid-pasteis"></div>
+    </section>
+
+    <section id="salgados" class="categoria" data-categoria="salgados" aria-label="Salgados">
+      <div class="categoria-header">
+        <h2>🥐 Salgados</h2>
+        <p class="categoria-desc">Assados e fritos</p>
+      </div>
+      <div class="produtos-grid" id="grid-salgados"></div>
+    </section>
+
+    <section id="bebidas" class="categoria" data-categoria="bebidas" aria-label="Bebidas">
+      <div class="categoria-header">
+        <h2>🥤 Bebidas</h2>
+        <p class="categoria-desc">Geladas e no ponto</p>
+      </div>
+      <div class="produtos-grid" id="grid-bebidas"></div>
+    </section>
+  </main>
+
+  <a class="whatsapp-float" id="whatsapp-float" href="#" aria-label="Pedir pelo WhatsApp" title="Pedir pelo WhatsApp">
+    <span aria-hidden="true">WA</span>
+  </a>
+
+  <div class="cart-modal" id="cart-modal" hidden>
+    <div class="cart-modal__overlay" id="cart-overlay" aria-hidden="true"></div>
+    <div class="cart-modal__panel" role="dialog" aria-modal="true" aria-label="Carrinho">
+      <div class="cart-modal__header">
+        <h2 class="cart-modal__title">Seu carrinho</h2>
+        <button class="cart-modal__close" id="cart-close" type="button" aria-label="Fechar">×</button>
+      </div>
+
+      <div class="cart-modal__body">
+        <div class="cart-empty" id="cart-empty" hidden>Seu carrinho está vazio.</div>
+        <div class="cart-items" id="cart-items"></div>
+      </div>
+
+      <div class="cart-modal__footer">
+        <div class="cart-total" id="cart-total" aria-label="Total do carrinho"></div>
+        <button class="cart-modal__btn cart-modal__btn--ghost" id="cart-clear" type="button">Limpar</button>
+        <button class="cart-modal__btn cart-modal__btn--primary" id="cart-send" type="button">Enviar no WhatsApp</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="menu-data.js" defer></script>
+  <script src="app.js" defer></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('./service-worker.js').catch(function () {});
+      });
+    }
+  </script>
+</body>
+</html>

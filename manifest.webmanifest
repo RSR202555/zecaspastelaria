@@ -1,0 +1,10 @@
+{
+  "name": "Zecas Pastelaria - Cardápio",
+  "short_name": "Zecas",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FF8C42",
+  "icons": []
+}
